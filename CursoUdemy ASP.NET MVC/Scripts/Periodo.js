@@ -12,7 +12,7 @@ function crearListado(data) {
     contenido += "<td>Id Periodo</td>";
     contenido += "<td>Nombre</td>";
     contenido += "<td>Fecha inicio</td>";
-    contenido += "<td>Fecha fin</td>";
+    contenido += "<td>Fecha fin</td>"; 
     contenido += "</tr>";
     contenido += "</thead>";
     contenido += "<tbody>";
