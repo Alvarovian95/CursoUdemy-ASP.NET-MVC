@@ -3,6 +3,15 @@ $.get("Periodo/listarPeriodo", function (data) {
     crearListado(data);
 });
 
+//Busqueda sensitiva
+var nombrePeriodo = document.getElementById("txtnombre");
+nombrePeriodo.onkeyup = function () {
+    var nombre = document.getElementById("txtnombre").value;
+    $.get("Periodo/buscarPeriodoPorNombre/?nombrePeriodo=" + nombre, function (data) {
+        crearListado(data);
+    });
+}
+
 function crearListado(data) {
     var contenido = "";
     contenido += "<table id='tabla-periodo' class = 'table'>";
