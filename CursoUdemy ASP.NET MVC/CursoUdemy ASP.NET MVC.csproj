@@ -132,6 +132,7 @@
     <Content Include="Scripts\ComboBox.js" />
     <Content Include="Scripts\Curso.js" />
     <Content Include="Scripts\datatables.min.js" />
+    <Content Include="Scripts\Docente.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
     <Content Include="Scripts\Periodo.js" />
     <Content Include="Web.config" />
@@ -142,6 +143,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ComboBoxController.cs" />
     <Compile Include="Controllers\CursoController.cs" />
+    <Compile Include="Controllers\DocenteController.cs" />
     <Compile Include="Controllers\PeriodoController.cs" />
     <Compile Include="Controllers\SeccionController.cs" />
     <Compile Include="DataClasses1.designer.cs">
@@ -180,6 +182,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Curso\Index.cshtml" />
     <Content Include="Views\ComboBox\Index.cshtml" />
+    <Content Include="Views\Docente\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

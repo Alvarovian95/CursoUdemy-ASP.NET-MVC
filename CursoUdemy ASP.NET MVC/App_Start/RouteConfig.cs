@@ -16,7 +16,7 @@ namespace CursoUdemy_ASP.NET_MVC
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "ComboBox", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Curso", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
