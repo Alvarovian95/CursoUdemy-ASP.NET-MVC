@@ -1,5 +1,23 @@
 ﻿
 listar();
+listarComboModalidad();
+
+var cboTipoModalidad = document.getElementById("cboTipoModalidad");
+
+cboTipoModalidad.onchange = function () {
+
+    var iidmodalidad = document.getElementById("cboTipoModalidad").value;
+
+    if (iidmodalidad == "") {
+        listar();
+    }
+    else {
+        $.get("Docente/filtrarDocentePorModalidad/?iidmodaldiad=" + iidmodalidad, function (data) {
+            crearListado(["Id docente", "Nombre docente", "Apellido paterno", "Apellido materno", "Email"], data);
+        });
+    }
+
+}
 
 function listar() {
     $.get("Docente/listarDocente", function (data) {
@@ -49,4 +67,26 @@ function crearListado(arrayColumnas, data) {
         searching: false
     });
 
+}
+
+function llenarCombo(data, control, primerElemento) {
+    var contenido = "";
+
+    if (primerElemento == true) {
+        contenido += "<option value =''>--Seleccione--</option>";
+    }
+    for (var i = 0; i < data.length; i++) {
+        contenido += "<option value ='" + data[i].IID + " '>";
+        contenido += data[i].NOMBRE;
+        contenido += "</option>";
+    }
+    control.innerHTML = contenido;
+}
+
+function listarComboModalidad() {
+    $.get("Docente/listarModalidadContrato", function (data) {
+
+        llenarCombo(data, document.getElementById("cboTipoModalidad"), true);
+
+    });
 }
