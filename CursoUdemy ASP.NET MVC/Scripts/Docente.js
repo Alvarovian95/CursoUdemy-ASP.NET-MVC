@@ -41,6 +41,11 @@ function crearListado(arrayColumnas, data) {
         contenido += arrayColumnas[i];
         contenido += "</td>";
     }
+
+    //añadiremos una columna de acciones
+    contenido += "<td>Operaciones</td>";
+
+
     contenido += "</tr>";
     contenido += "</thead>";
     var llaves = Object.keys(data[0]);
@@ -57,6 +62,11 @@ function crearListado(arrayColumnas, data) {
             contenido += "</td>";
 
         }
+        contenido += "<td>";
+        contenido += "<button class = 'btn btn-primary'><i class='glyphicon glyphicon-edit'></i></button> ";
+        contenido += "<button class = 'btn btn-danger'><i class='glyphicon glyphicon-trash'></i></button> ";
+        contenido += "</td>";
+
         contenido += "</tr>";
     }
     contenido += "</tbody>";

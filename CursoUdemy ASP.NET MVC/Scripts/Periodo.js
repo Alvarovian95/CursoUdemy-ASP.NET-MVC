@@ -22,9 +22,12 @@ function crearListado(data) {
     contenido += "<td>Nombre</td>";
     contenido += "<td>Fecha inicio</td>";
     contenido += "<td>Fecha fin</td>"; 
+    contenido += "<td>Operaciones</td>";
     contenido += "</tr>";
     contenido += "</thead>";
     contenido += "<tbody>";
+
+ 
 
     for (var i = 0; i < data.length; i++) {
         contenido += "<tr>";
@@ -32,6 +35,10 @@ function crearListado(data) {
         contenido += "<td>" + data[i].NOMBRE + "</td>";
         contenido += "<td>" + data[i].FECHAINICIO + "</td>";
         contenido += "<td>" + data[i].FECHAFIN + "</td>";
+        contenido += "<td>";
+        contenido += "<button class = 'btn btn-primary' data-toggle='modal' data-target='#myModal'><i class='glyphicon glyphicon-edit'></i></button> ";
+        contenido += "<button class = 'btn btn-danger'><i class='glyphicon glyphicon-trash'></i></button> ";
+        contenido += "</td>";
         contenido += "</tr>";
     }
 
