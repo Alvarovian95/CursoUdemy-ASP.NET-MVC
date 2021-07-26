@@ -120,6 +120,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\datatables.css" />
+    <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Global.asax" />
     <Content Include="DataClasses1.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
@@ -134,6 +135,7 @@
     <Content Include="Scripts\datatables.min.js" />
     <Content Include="Scripts\Docente.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\Periodo.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Periodo\Index.cshtml" />

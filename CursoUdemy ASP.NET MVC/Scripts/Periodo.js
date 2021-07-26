@@ -1,4 +1,6 @@
-﻿
+﻿$("#datepickerInicio").datepicker();
+$("#datepickerFin").datepicker();
+
 $.get("Periodo/listarPeriodo", function (data) {
     crearListado(data);
 });

@@ -3,9 +3,10 @@
     ViewBag.Title = "Index";
 }
 
-<link href="~/Content/datatables.css" rel="stylesheet" />
-<h2>Periodo</h2>
 
+<h2>Periodo</h2>
+<link href="~/Content/datatables.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
 
 <label>Ingrese nombre periodo : </label>
 <input type="text" id="txtnombre" />
@@ -35,9 +36,24 @@
                         <td width="60%"><input type="text" id="txtIdPeriodo" readonly /></td>
                     </tr>
                     <tr>
-                        <td width="40%">Ingrese nombre Periodo</td>
-                        <td width="60%"><input type="text" id="txtNombre" /></td>
+                        <td>Ingrese nombre Periodo</td>
+                        <td><input type="text" id="txtNombre" /></td>
                     </tr>
+
+                    @*Con jquery*@
+
+                    <tr>
+                        <td>Fecha de inicio</td>
+                        <td><input type="text" class="form-control" id="datepickerInicio" placeholder="" value="" required></td>
+                    </tr>
+
+                    <tr>
+                        <td>Fecha fin</td>
+                        <td><input type="text" class="form-control" id="datepickerFin" placeholder="" value="" required></td>
+                    </tr>
+
+
+
 
                 </table>
             </div>
@@ -51,6 +67,7 @@
 
 
 <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
 <script src="~/Scripts/Periodo.js"></script>
 <script src="~/Scripts/datatables.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
