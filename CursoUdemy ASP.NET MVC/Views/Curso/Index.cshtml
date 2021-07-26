@@ -5,20 +5,57 @@
 
 <h2>Curso</h2>
 <link href="~/Content/datatables.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
 
 <label>Ingrese nombre : </label>
 <input type="text" id="txtnombre" />
-<input type="button" value="Buscar" id="btnBuscar" class="btn btn-primary"/>
-<input type="button" value="Limpiar" id="btnLimpiar"  class="btn btn-success"/>
+<input type="button" value="Buscar" id="btnBuscar" class="btn btn-primary" />
+<input type="button" value="Limpiar" id="btnLimpiar" class="btn btn-success" />
+
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">Agregar</button>
 
 <div id="tabla">
 
+</div>
 
+<!-- Modal -->
+<div id="myModal" class="modal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <table style="width:80%;margin: auto">
+                    <tr>
+                        <td width="40%">Id Curso</td>
+                        <td width="60%"><input type="text" id="txtIdCurso" readonly /></td>
+                    </tr>
+                    <tr>
+                        <td>Ingrese nombre curso</td>
+                        <td><input type="text" id="txtNombre" /></td>
+                    </tr>
+                    <tr>
+                        <td>Ingrese descripción curso</td>
+                        <td><input type="text" id="txtDescripcion" /></td>
+                    </tr>
 
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnAceptar" data-dismiss="modal">Aceptar</button>
+                <button type="button" class="btn btn-danger" id="btnCancelar" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
 
+    </div>
 </div>
 
 
 <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
 <script src="~/Scripts/Curso.js"></script>
 <script src="~/Scripts/datatables.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

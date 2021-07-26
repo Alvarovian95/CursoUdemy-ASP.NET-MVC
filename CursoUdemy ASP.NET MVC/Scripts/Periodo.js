@@ -1,5 +1,17 @@
-﻿$("#datepickerInicio").datepicker();
-$("#datepickerFin").datepicker();
+﻿$("#datepickerInicio").datepicker(
+    {
+        dateFormat: "dd/mm/yy",
+        changeMonth: true,
+        changeYear: true
+    }
+);
+$("#datepickerFin").datepicker(
+    {
+        dateFormat: "dd/mm/yy",
+        changeMonth: true,
+        changeYear: true
+    }
+);
 
 $.get("Periodo/listarPeriodo", function (data) {
     crearListado(data);
@@ -23,13 +35,13 @@ function crearListado(data) {
     contenido += "<td>Id Periodo</td>";
     contenido += "<td>Nombre</td>";
     contenido += "<td>Fecha inicio</td>";
-    contenido += "<td>Fecha fin</td>"; 
+    contenido += "<td>Fecha fin</td>";
     contenido += "<td>Operaciones</td>";
     contenido += "</tr>";
     contenido += "</thead>";
     contenido += "<tbody>";
 
- 
+
 
     for (var i = 0; i < data.length; i++) {
         contenido += "<tr>";

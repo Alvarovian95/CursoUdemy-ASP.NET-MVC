@@ -4,7 +4,7 @@
 }
 
 <link href="~/Content/datatables.css" rel="stylesheet" />
-
+<link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
 
 
 <h2>Docente</h2>
@@ -14,10 +14,94 @@
 <select id="cboTipoModalidad">
 </select>
 
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">Agregar</button>
+
 <div id="tabla">
 
 </div>
 
+<!-- Modal -->
+<div id="myModal" class="modal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <table style="width:80%;margin: auto">
+
+                    <tr>
+                        <td width="40%">Id Docente</td>
+                        <td width="60%"><input type="text" id="txtIdDocente" readonly /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ingrese nombre docente</td>
+                        <td><input type="text" id="txtNombre" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ingrese primer apellido</td>
+                        <td><input type="text" id="txtapellido1" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ingrese segundo apellido</td>
+                        <td><input type="text" id="txtApellido2" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ingrese dirección</td>
+                        <td><input type="text" id="txtDirección" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ingrese telefono</td>
+                        <td><input type="number" id="txtTelefono" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ingrese email</td>
+                        <td><input type="email" id="txtEmail" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ingrese sexo</td>
+                        <td><select id="cboSexoPopup" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ingrese fecha contrato</td>
+                        <td><input type="text" id="dtFechaContrato" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ingrese modalidad de contrato</td>
+                        <td><select id="cboModalidadContratoPopup" /></td>
+                    </tr>
+
+                    <tr>
+                        <td>Ingrese foto</td>
+                        <td><img id="imgFoto" width="150" height="150"style="border:1px solid" /></td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnAceptar" data-dismiss="modal">Aceptar</button>
+                <button type="button" class="btn btn-danger" id="btnCancelar" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
 <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<script src="~/Scripts/jquery-ui.min.js"></script>
 <script src="~/Scripts/Docente.js"></script>
 <script src="~/Scripts/datatables.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+

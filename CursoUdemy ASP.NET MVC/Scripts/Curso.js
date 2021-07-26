@@ -1,4 +1,20 @@
-﻿$.get("Curso/listarCursos", function (data) {
+﻿$("#datepickerInicio").datepicker(
+        {        
+        dateFormat: "dd/mm/yy",
+        changeMonth: true,
+        changeYear: true
+    }
+);
+$("#datepickerFin").datepicker(
+    {
+        dateFormat: "dd/mm/yy",
+        changeMonth: true,
+        changeYear: true
+    }
+);
+
+
+$.get("Curso/listarCursos", function (data) {
     crearListado(data);
 });
 
@@ -31,6 +47,7 @@ function crearListado(data) {
     contenido += "<td>Id Curso</td>";
     contenido += "<td>Nombre</td>";
     contenido += "<td>Descripcion</td>";
+    contenido += "<td>Operaciones</td>";
     contenido += "</tr>";
     contenido += "</thead>";
     contenido += "<tbody>";
@@ -40,6 +57,10 @@ function crearListado(data) {
         contenido += "<td>" + data[i].IIDCURSO + "</td>";
         contenido += "<td>" + data[i].NOMBRE + "</td>";
         contenido += "<td>" + data[i].DESCRIPCION + "</td>";
+        contenido += "<td>";
+        contenido += "<button class = 'btn btn-primary' data-toggle='modal' data-target='#myModal'><i class='glyphicon glyphicon-edit'></i></button> ";
+        contenido += "<button class = 'btn btn-danger' data-toggle='modal' data-target='#myModal'><i class='glyphicon glyphicon-trash'></i></button> ";
+        contenido += "</td>"
         contenido += "</tr>";
     }
 

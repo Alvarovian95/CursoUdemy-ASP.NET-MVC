@@ -1,4 +1,19 @@
-﻿
+﻿$("#dtFechaContrato").datepicker(
+    {
+        dateFormat: "dd/mm/yy",
+        changeMonth: true,
+        changeYear: true
+    }
+);
+$("#datepickerFin").datepicker(
+    {
+        dateFormat: "dd/mm/yy",
+        changeMonth: true,
+        changeYear: true
+    }
+);
+
+
 listar();
 listarComboModalidad();
 
@@ -63,8 +78,8 @@ function crearListado(arrayColumnas, data) {
 
         }
         contenido += "<td>";
-        contenido += "<button class = 'btn btn-primary'><i class='glyphicon glyphicon-edit'></i></button> ";
-        contenido += "<button class = 'btn btn-danger'><i class='glyphicon glyphicon-trash'></i></button> ";
+        contenido += "<button class = 'btn btn-primary' data-toggle='modal' data-target='#myModal'><i class='glyphicon glyphicon-edit'></i></button> ";
+        contenido += "<button class = 'btn btn-danger' data-toggle='modal' data-target='#myModal'><i class='glyphicon glyphicon-trash'></i></button> ";
         contenido += "</td>";
 
         contenido += "</tr>";
@@ -97,6 +112,13 @@ function listarComboModalidad() {
     $.get("Docente/listarModalidadContrato", function (data) {
 
         llenarCombo(data, document.getElementById("cboTipoModalidad"), true);
+        llenarCombo(data, document.getElementById("cboModalidadContratoPopup"), true);
+        
+
 
     });
 }
+
+$.get("Docente/listarSexos", function (data) {
+    llenarCombo(data, document.getElementById("cboSexoPopup"), true);
+})
