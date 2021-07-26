@@ -37,7 +37,7 @@ function crearListado(data) {
         contenido += "<td>" + data[i].FECHAFIN + "</td>";
         contenido += "<td>";
         contenido += "<button class = 'btn btn-primary' data-toggle='modal' data-target='#myModal'><i class='glyphicon glyphicon-edit'></i></button> ";
-        contenido += "<button class = 'btn btn-danger'><i class='glyphicon glyphicon-trash'></i></button> ";
+        contenido += "<button class = 'btn btn-danger' data-toggle='modal' data-target='#myModal'><i class='glyphicon glyphicon-trash'></i></button> ";
         contenido += "</td>";
         contenido += "</tr>";
     }
