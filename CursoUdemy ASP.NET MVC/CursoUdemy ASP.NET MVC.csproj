@@ -137,9 +137,9 @@
     <Content Include="Scripts\jquery-3.6.0.min.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\Periodo.js" />
+    <Content Include="Scripts\Seccion.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Periodo\Index.cshtml" />
-    <Content Include="Views\Seccion\Inicio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -185,6 +185,7 @@
     <Content Include="Views\Curso\Index.cshtml" />
     <Content Include="Views\ComboBox\Index.cshtml" />
     <Content Include="Views\Docente\Index.cshtml" />
+    <Content Include="Views\Seccion\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
