@@ -1,4 +1,6 @@
-﻿$("#datepickerInicio").datepicker(
+﻿listar();
+
+$("#datepickerInicio").datepicker(
     {
         dateFormat: "dd/mm/yy",
         changeMonth: true,
@@ -38,6 +40,12 @@ btnLimpiar.onclick = function () {
 
 }
 
+function listar() {
+    $.get("Curso/listarCursos", function (data) {
+        crearListado(data);
+    });
+}
+
 function crearListado(data) {
     var contenido = "";
     contenido += "<table id='tabla-curso' class = 'table'>";
@@ -74,6 +82,13 @@ function crearListado(data) {
 
 
 function abrirModal(id) {
+    var controlesObligatorios = document.getElementsByClassName("obligatorio");
+    var ncontroles = controlesObligatorios.length;
+
+    for (var i = 0; i < ncontroles; i++) {
+        controlesObligatorios[i].parentNode.classList.remove("error");
+    }
+
     if (id == 0) {
         borrarDatos();
     } else {
@@ -96,7 +111,37 @@ function borrarDatos() {
 }
 
 function Agregar() {
-    datosObligatorios();
+    if (datosObligatorios() == true) {
+        var frm = new FormData();
+        var id = document.getElementById("txtIdCurso").value;
+        var nombre = document.getElementById("txtNombre").value;
+        var descripcion = document.getElementById("txtDescripcion").value;
+        frm.append("IIDCURSO", id);
+        frm.append("NOMBRE", nombre);
+        frm.append("DESCRIPCION", descripcion);
+        frm.append("BHABILITADO", 1);
+
+        $.ajax({
+            type: "POST",
+            url: "Curso/guardarDatos",
+            data: frm,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                if (data != 0) {
+                    listar();
+                    document.getElementById("btnCancelar").click();                         
+                } else {
+                    alert("Ocurrio un error");
+                }
+            }
+
+        });
+
+    }
+    else {
+
+    }
 }
 
 

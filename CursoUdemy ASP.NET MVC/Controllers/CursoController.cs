@@ -55,5 +55,35 @@ namespace CursoUdemy_ASP.NET_MVC.Controllers
             return Json(lista, JsonRequestBehavior.AllowGet);
         }
 
+        public int guardarDatos(Curso curso)
+        {
+            DataClasses1DataContext bd = new DataClasses1DataContext();
+            int nregistrosAfectados = 0;
+            try
+            {
+                //NUEVO
+                if (curso.IIDCURSO == 0)
+                {
+                    curso.NOMBRE = curso.NOMBRE.ToUpper();
+                    curso.DESCRIPCION = curso.DESCRIPCION.ToUpper();
+
+                    bd.Curso.InsertOnSubmit(curso);
+                    bd.SubmitChanges();
+                    nregistrosAfectados = 1;
+                }
+                //EDITAR
+                else
+                {
+
+                }
+            }
+            catch(Exception ex)
+            {
+                nregistrosAfectados = 0;
+            }
+
+            return nregistrosAfectados;
+        }
+
     }
 }
