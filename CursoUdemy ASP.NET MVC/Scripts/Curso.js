@@ -1,5 +1,5 @@
 ﻿$("#datepickerInicio").datepicker(
-        {        
+    {
         dateFormat: "dd/mm/yy",
         changeMonth: true,
         changeYear: true
@@ -29,7 +29,7 @@ btnBuscar.onclick = function () {
 }
 
 
-btnLimpiar.onclick = function () {    
+btnLimpiar.onclick = function () {
     $.get("Curso/listarCursos", function (data) {
         crearListado(data);
     });
@@ -58,7 +58,7 @@ function crearListado(data) {
         contenido += "<td>" + data[i].NOMBRE + "</td>";
         contenido += "<td>" + data[i].DESCRIPCION + "</td>";
         contenido += "<td>";
-        contenido += "<button class = 'btn btn-primary' data-toggle='modal' data-target='#myModal'><i class='glyphicon glyphicon-edit'></i></button> ";
+        contenido += "<button class = 'btn btn-primary' onclick='abrirModal(" + data[i].IIDCURSO + ")' data-toggle='modal' data-target='#myModal'><i class='glyphicon glyphicon-edit'></i></button> ";
         contenido += "<button class = 'btn btn-danger' data-toggle='modal' data-target='#myModal'><i class='glyphicon glyphicon-trash'></i></button> ";
         contenido += "</td>"
         contenido += "</tr>";
@@ -70,4 +70,49 @@ function crearListado(data) {
     $("#tabla-curso").dataTable({
         searching: false
     });
+}
+
+
+function abrirModal(id) {
+    if (id == 0) {
+        borrarDatos();
+    } else {
+        $.get("Curso/recuperarDatos/?id=" + id, function (data) {
+            document.getElementById("txtIdCurso").value = data[0].IIDCURSO;
+            document.getElementById("txtNombre").value = data[0].NOMBRE;
+            document.getElementById("txtDescripcion").value = data[0].DESCRIPCION;
+
+        })
+    }
+}
+
+function borrarDatos() {
+    var controles = document.getElementsByClassName("borrar");
+    var ncontroles = controles.length;
+
+    for (var i = 0; i < ncontroles; i++) {
+        controles[i].value = "";
+    }
+}
+
+function Agregar() {
+    datosObligatorios();
+}
+
+
+function datosObligatorios() {
+    var existo = true;
+    var controlesObligatorios = document.getElementsByClassName("obligatorio");
+    var ncontroles = controlesObligatorios.length;
+
+    for (var i = 0; i < ncontroles; i++) {
+        if (controlesObligatorios[i].value == "") {
+            existo = false;
+            controlesObligatorios[i].parentNode.classList.add("error");
+        }
+        else {
+            controlesObligatorios[i].parentNode.classList.remove("error");
+        }
+    }
+    return existo;
 }

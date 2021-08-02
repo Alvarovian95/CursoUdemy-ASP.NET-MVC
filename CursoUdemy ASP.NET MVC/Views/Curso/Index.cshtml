@@ -4,15 +4,17 @@
 }
 
 <h2>Curso</h2>
+
 <link href="~/Content/datatables.css" rel="stylesheet" />
 <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/cssPropio.css" rel="stylesheet" />
 
 <label>Ingrese nombre : </label>
 <input type="text" id="txtnombre" />
 <input type="button" value="Buscar" id="btnBuscar" class="btn btn-primary" />
 <input type="button" value="Limpiar" id="btnLimpiar" class="btn btn-success" />
 
-<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">Agregar</button>
+<button type="button" onclick="abrirModal(0)" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">Agregar</button>
 
 <div id="tabla">
 
@@ -31,21 +33,21 @@
                 <table style="width:80%;margin: auto">
                     <tr>
                         <td width="40%">Id Curso</td>
-                        <td width="60%"><input type="text" id="txtIdCurso" readonly /></td>
+                        <td width="60%"><input type="text" class="borrar" id="txtIdCurso" readonly /></td>
                     </tr>
                     <tr>
                         <td>Ingrese nombre curso</td>
-                        <td><input type="text" id="txtNombre" /></td>
+                        <td><input type="text" class="borrar obligatorio" id="txtNombre" /></td>
                     </tr>
                     <tr>
                         <td>Ingrese descripción curso</td>
-                        <td><input type="text" id="txtDescripcion" /></td>
+                        <td><input type="text" class="borrar obligatorio" id="txtDescripcion" /></td>
                     </tr>
 
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="btnAceptar" data-dismiss="modal">Aceptar</button>
+                <button type="button" onclick="Agregar()" class="btn btn-success" >Aceptar</button>
                 <button type="button" class="btn btn-danger" id="btnCancelar" data-dismiss="modal">Cancelar</button>
             </div>
         </div>
