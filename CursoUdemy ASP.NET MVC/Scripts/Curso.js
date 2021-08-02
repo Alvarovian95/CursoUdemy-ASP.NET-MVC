@@ -67,7 +67,7 @@ function crearListado(data) {
         contenido += "<td>" + data[i].DESCRIPCION + "</td>";
         contenido += "<td>";
         contenido += "<button class = 'btn btn-primary' onclick='abrirModal(" + data[i].IIDCURSO + ")' data-toggle='modal' data-target='#myModal'><i class='glyphicon glyphicon-edit'></i></button> ";
-        contenido += "<button class = 'btn btn-danger' data-toggle='modal' data-target='#myModal'><i class='glyphicon glyphicon-trash'></i></button> ";
+        contenido += "<button class = 'btn btn-danger' onclick='Eliminar(" + data[i].IIDCURSO + ")'><i class='glyphicon glyphicon-trash'></i></button> ";
         contenido += "</td>"
         contenido += "</tr>";
     }
@@ -110,6 +110,28 @@ function borrarDatos() {
     }
 }
 
+function Eliminar(id) {
+    var frm = new FormData();
+    frm.append("IIDCURSO", id);
+    if (confirm("¿Desea realmente eliminarlo?") == 1) {
+        $.ajax({
+            type: "POST",
+            url: "Curso/eliminarCurso",
+            data: frm,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                if (data != 0) {
+                    listar();
+                    document.getElementById("btnCancelar").click();
+                } else {
+                    alert("Ocurrio un error");
+                }
+            }
+        });
+    }
+}
+
 function Agregar() {
     if (datosObligatorios() == true) {
         var frm = new FormData();
@@ -136,13 +158,9 @@ function Agregar() {
                         alert("Ocurrio un error");
                     }
                 }
-
             });
         }
-    }
-    else {
-
-    }
+    }  
 }
 
 
