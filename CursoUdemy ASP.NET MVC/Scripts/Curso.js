@@ -121,23 +121,24 @@ function Agregar() {
         frm.append("DESCRIPCION", descripcion);
         frm.append("BHABILITADO", 1);
 
-        $.ajax({
-            type: "POST",
-            url: "Curso/guardarDatos",
-            data: frm,
-            contentType: false,
-            processData: false,
-            success: function (data) {
-                if (data != 0) {
-                    listar();
-                    document.getElementById("btnCancelar").click();                         
-                } else {
-                    alert("Ocurrio un error");
+        if (confirm("¿Desea realmente guardar?") == 1) {
+            $.ajax({
+                type: "POST",
+                url: "Curso/guardarDatos",
+                data: frm,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data != 0) {
+                        listar();
+                        document.getElementById("btnCancelar").click();
+                    } else {
+                        alert("Ocurrio un error");
+                    }
                 }
-            }
 
-        });
-
+            });
+        }
     }
     else {
 

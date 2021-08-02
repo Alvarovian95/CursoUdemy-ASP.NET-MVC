@@ -74,7 +74,12 @@ namespace CursoUdemy_ASP.NET_MVC.Controllers
                 //EDITAR
                 else
                 {
-
+                   Curso cursoSel =  bd.Curso.Where(p => p.IIDCURSO.Equals(curso.IIDCURSO)).First();
+                    cursoSel.NOMBRE = curso.NOMBRE.ToUpper();
+                    cursoSel.DESCRIPCION = curso.DESCRIPCION.ToUpper();
+                    cursoSel.BHABILITADO = curso.BHABILITADO.ToUpper();
+                    bd.SubmitChanges();
+                    nregistrosAfectados = 1;
                 }
             }
             catch(Exception ex)
