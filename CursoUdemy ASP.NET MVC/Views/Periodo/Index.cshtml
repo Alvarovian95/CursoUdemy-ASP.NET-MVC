@@ -12,7 +12,7 @@
 <label>Ingrese nombre periodo : </label>
 <input type="text" id="txtnombre" />
 <!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">Agregar</button>
+<button type="button" onclick="abrirModal(0)" class="btn btn-info" data-toggle="modal" data-target="#myModal">Agregar</button>
 
 
 <div id="tabla">
@@ -21,7 +21,7 @@
 
 <!-- Modal -->
 <div id="myModal" class="modal" role="dialog">
-    <div class="modal-dialog">        
+    <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
@@ -32,21 +32,21 @@
                 <table style="width:80%;margin: auto">
                     <tr>
                         <td width="40%">Id Periodo</td>
-                        <td width="60%"><input type="text" id="txtIdPeriodo" readonly /></td>
+                        <td width="60%"><input type="text" class="borrar" id="txtIdPeriodo" readonly /></td>
                     </tr>
                     <tr>
                         <td>Ingrese nombre Periodo</td>
-                        <td><input type="text" id="txtNombre" /></td>
+                        <td><input type="text" class="borrar obligatorio" id="txtNombrePopUp" /></td>
                     </tr>
 
                     @*Con jquery*@
                     <tr>
                         <td>Fecha de inicio</td>
-                        <td><input type="text" class="form-control" id="datepickerInicio" placeholder="" value="" required></td>
+                        <td><input type="text" class="form-control borrar obligatorio" id="datepickerInicio" placeholder="" value="" required></td>
                     </tr>
                     <tr>
                         <td>Fecha fin</td>
-                        <td><input type="text" class="form-control" id="datepickerFin" placeholder="" value="" required></td>
+                        <td><input type="text" class="form-control borrar obligatorio" id="datepickerFin" placeholder="" value="" required></td>
                     </tr>
 
                 </table>
