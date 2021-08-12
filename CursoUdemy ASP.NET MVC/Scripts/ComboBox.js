@@ -5,7 +5,7 @@
 
     for (var i = 0; i < nregistros; i++) {
 
-        contenido += "<option value=' " + data[i].idPersona + " ' >";
+        contenido += "<option value=' " + data[i].idPersona + "'>";
 
         contenido += data[i].nombre;
 
